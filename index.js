@@ -48,7 +48,7 @@ app.post('/addSchool', (req, res) => {
     }
 });
 
-app.get('/listSchool', (req, res) => {
+app.get('/listSchools', (req, res) => {
     try {
         const { latitude, longitude } = req.query;  // Extract user's latitude and longitude from the request body
 
