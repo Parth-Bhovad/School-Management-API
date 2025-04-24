@@ -52,10 +52,10 @@ app.get('/listSchool', (req, res) => {
     try {
         console.log(req.body);
         
-        const { lat, lon } = req.body;  // Extract user's latitude and longitude from the request body
+        const { latitude, longitude } = req.body;  // Extract user's latitude and longitude from the request body
 
         // Ensure both lat and lon are provided
-        if (!lat || !lon) {
+        if (!latitude || !longitude) {
             return res.status(400).json({ error: 'Latitude and Longitude are required.' });
         }
 
@@ -75,7 +75,7 @@ app.get('/listSchool', (req, res) => {
     ORDER BY distance ASC;  -- Sort by distance, nearest first
   `;
 
-  connection.query(query, [lat, lon, lat], (err, results) => {
+  connection.query(query, [latitude, longitude, latitude], (err, results) => {
             if (err) {
                 console.error('Error executing query:', err);
                 return res.status(500).json({ error: 'Internal server error' });
