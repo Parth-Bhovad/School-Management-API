@@ -50,9 +50,7 @@ app.post('/addSchool', (req, res) => {
 
 app.get('/listSchool', (req, res) => {
     try {
-        console.log(req.body);
-        
-        const { latitude, longitude } = req.body;  // Extract user's latitude and longitude from the request body
+        const { latitude, longitude } = req.query;  // Extract user's latitude and longitude from the request body
 
         // Ensure both lat and lon are provided
         if (!latitude || !longitude) {
